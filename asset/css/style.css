@@ -1,0 +1,85 @@
+#countLabel{
+    display: block;
+    text-align: center;
+    font-size: 10em;
+    
+}
+
+
+
+
+.buttton{
+    
+    text-align: center;
+
+    
+    padding: 200px;
+
+}
+.btncontainer{
+    margin: 5rem;
+    padding: 5rem;
+    background-color:rgba(211, 190, 154, .7);
+   
+    display: flex;
+    
+    justify-content: center;
+    gap: 50px;
+}
+
+.estrouge{
+    color:red;
+}
+.estnoire{
+    color: black;
+}
+body{
+    background-image: url(../img/backgroundpawn.png);
+    background-size: cover;
+}
+.flex-h-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.classAnimation{
+    transform: rotate(360deg);
+    transition: transform 0.3s ease-in-out;
+    
+}
+button{
+    color: antiquewhite;
+    background-color: #ecb556;
+    margin: 10px;
+        width: 200px;
+    height: 40px;
+    border: 4px solid #B7955B;
+     border-radius: 8px;
+     font-size: 24px;
+}
+/* 
+button:hover + #thuglife {
+  display: block;
+  height: 300px;
+  width: 200px;
+  transform: translate(250px, -130px)
+   
+} */
+button:hover{
+     cursor:pointer;
+}
+.flex-container-image{
+    display: flex;
+    flex-direction: row;
+}
+
+.Chien-qui-t-aime:hover + #loveyou{
+display: block;
+}
+
+#loveyou{
+    display: none;
+    color: whitesmoke;
+    font-size: 40PX;
+}
