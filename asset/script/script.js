@@ -2,7 +2,7 @@ const plus = document.getElementById('incrementBtn');
 const moins = document.getElementById('decrementBtn');
 const Counter = document.getElementById('countLabel');
 const clear = document.getElementById('resetBtn');
-
+const flexrow = document.querySelectorAll(".flex-row");
 let variableX = 1;
 let count = 0;
 
@@ -23,17 +23,27 @@ function augmenter() {
     count += variableX;
     
     document.getElementById("countLabel").innerHTML = count;
+  if(count >= prix_auto_clicker)
+    {
+        flexrow[0].style.backgroundColor = "#ecb556";
+    }
+
+   if(count < prix_auto_clicker) {
+        flexrow[0].style.backgroundColor = "#838080ff";
+    }
+
+      if(count >= prixmultiplier)
+    {
+        flexrow[1].style.backgroundColor = "#ecb556";
+    }
+
+   if(count < prixmultiplier) {
+        flexrow[1].style.backgroundColor = "#838080ff";
+    }
+
+
 };
 
-function clearConsole() {
-    count = 0;
-    variableX = 1;
-    document.getElementById("countLabel").innerHTML = count;
-    multipliercompteur = 0;
-     document.getElementById('Multiplier').innerHTML = multipliercompteur;
-    auto_clicker_compter =0;
-     document.getElementById('auto-clicker').innerHTML = auto_clicker_compter
-};
 
 function animationA(){
 batonnet.classList.add("classAnimation");
@@ -48,9 +58,15 @@ function multiplierX(){
         count -= prixmultiplier;
         prixmultiplier = CalculerPrixMultiplier();
         multipliercompteur++;
-        document.getElementById('NBcookieclick').innerHTML = multipliercompteur +1;
-       document.getElementById('Multiplier').innerHTML = multipliercompteur +1;
        document.getElementById("countLabel").innerHTML = count;
+       document.getElementById("NBFclick").innerHTML = multipliercompteur +1;
+        document.getElementById("upgrader").innerHTML = multipliercompteur +1;
+        console.log(multipliercompteur);
+         // autoclicker
+    document.getElementById('autocost').innerHTML = prix_auto_clicker + " Friandise cost";
+
+    //upgradepatte
+    document.getElementById('upgradecost').innerHTML = prixmultiplier + " Friandise cost";
       }  
 };
 
@@ -62,7 +78,14 @@ function auto_clickerMarket(){
         document.getElementById("countLabel").innerHTML = count;
     auto_clicker_compter++;
     document.getElementById('auto-clicker').innerHTML = auto_clicker_compter;
-     document.getElementById("NBcookieauto").innerHTML = auto_clicker_compter;
+    document.getElementById('NBFauto').innerHTML = auto_clicker_compter;
+    
+
+       // autoclicker
+    document.getElementById('autocost').innerHTML = prix_auto_clicker + " Friandise cost";
+
+    //upgradepatte
+    document.getElementById('upgradecost').innerHTML = prixmultiplier + " Friandise cost";
     }
 }
 
@@ -70,6 +93,36 @@ function auto_clickerMarket(){
 setInterval(function() {
     count += auto_clicker_compter; // Ajoute 1 clic pour chaque autoclicker possédé
     document.getElementById("countLabel").innerHTML = count;
+
+    // autoclicker
+    document.getElementById('autocost').innerHTML = prix_auto_clicker + " Friandise cost";
+
+    //upgradepatte
+    document.getElementById('upgradecost').innerHTML = prixmultiplier + " Friandise cost";
+
+    //update boutton click on/off
+      if(count >= prix_auto_clicker)
+    {
+        flexrow[0].style.backgroundColor = "#ecb556";
+        flexrow[0].style.cursor = "pointer";
+    }
+
+   if(count < prix_auto_clicker) {
+        flexrow[0].style.backgroundColor = "#838080ff";
+         flexrow[0].style.cursor = "not-allowed";
+    }
+
+      if(count >= prixmultiplier)
+    {
+        flexrow[1].style.backgroundColor = "#ecb556";
+        flexrow[1].style.cursor = "pointer";
+    }
+
+   if(count < prixmultiplier) {
+        flexrow[1].style.backgroundColor = "#838080ff";
+        flexrow[1].style.cursor = "not-allowed";
+    }
+
 }, 1000);
 
 // courbe de prix function
@@ -102,8 +155,6 @@ batonnet.addEventListener("click", augmenter);
 batonnet.addEventListener("mouseup", animationA);
 batonnet.addEventListener("mousedown", animationB);
 
-
-clear.addEventListener("click", clearConsole);
 
 moins.addEventListener("click", multiplierX);
 
