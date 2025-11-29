@@ -9,24 +9,40 @@
 </head>
 <body>
     <div  class="btncontainer">
-        <div>
-        <label id="countLabel" >0</label><br>
-        <img id="thuglife"  src="./asset/img/Battonnet.png" alt="Friandise pour chien" width="200" height="150">
-        </div>
-        <div >
-        
+        <div class="container-gauche">
+            
+                <label id="countLabel" >0</label><br>
+                 <div id="mas-mar">NB Cookie seconde:
+                <label id="NBcookieauto">0</label>
+                </div>
+                 <div id="mas-mar">NB Cookie par click:
+                <label id="NBcookieclick">0</label>
+                </div>
+                <img id="thuglife"  src="./asset/img/Battonnet.png" alt="Friandise pour chien" width="200" height="150">
+               
         </div>
         <div class="flex-h-container">
             <h1>Boutique de friandise</h1>
+
+            <div class="flex-row">
+            
             <button  id="incrementBtn" class="button">Auto clicker</button>
+            <label id="auto-clicker" class="transformer">0</label>
+            </div>
+            <div class="flex-row">
+            
             <button  id="decrementBtn" class="button">Multiplier</button>
+            <label id="Multiplier" class="transformer">0</label>
+            </div>
+            <div class="flex-row">
             <button  id="resetBtn" class="button">Reset</button>
-        </div>
+            </div>
+       </div>
     </div>
     <div class="flex-container-image">  
         <img class="Chien-qui-t-aime" src="./asset/img/jackyChapeau.png" alt="Jacky avec un chapeau" width="200" height="200">
        <div id="loveyou">Je m'appelle jacky !</div>
     </div>
-   
+    
 </body>
 </html>
