@@ -116,6 +116,24 @@ button{
      font-size: 24px;
 
 }
+
+/* Code inspired source : https://tobiasahlin.com/blog/curved-path-animations-in-css/
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/translate */
+#thuglife:active{
+     animation: WHATtheFUCKX 1s  cubic-bezier(0.02, 0.01, 0.21, 1);
+}
+
+
+@keyframes WHATtheFUCKX{
+       20% {
+   animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    transform: translate(-460px,350px) scale(.1) rotate(360deg);;
+ 
+   
+}
+
+}
+/*  fin code inspired */
 /* 
 button:hover + #thuglife {
   display: block;
