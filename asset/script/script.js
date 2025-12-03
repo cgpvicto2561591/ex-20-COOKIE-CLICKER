@@ -6,7 +6,7 @@ const flexrow = document.querySelectorAll(".flex-row");
 let variableX = 1;
 let count = 0;
 
-
+const sauvegarder = document.getElementById('Sauvegarder');
 const batonnet = document.getElementById('thuglife');
 const multiplier = document.getElementById('Multiplier');
 const auto_clicker = document.getElementById('auto-clicker');
@@ -16,7 +16,7 @@ let multipliercompteur = 0;
 let prixmultiplier = 5;
 let auto_clicker_compter = 0;
 let prix_auto_clicker = 5;
-
+window.onload = loadGame;
 
 //function
 function augmenter() {
@@ -132,8 +132,6 @@ function CalculerPrixAutoClicker(){
     let alpha = 0.25;
     let beta = 1.05;
     let prix = base += Math.pow(1 + alpha, Math.pow(auto_clicker_compter, beta));
-     console.log(prix + "autoclicker");
-     console.log(auto_clicker_compter);
     return Math.round(prix);
 }
 
@@ -143,12 +141,42 @@ function CalculerPrixMultiplier(){
     let alpha = 0.25;
     let beta = 1.05;
     let prix = base += Math.pow(1 + alpha, Math.pow(multipliercompteur, beta));
-     console.log(Math.round(prix) + "multiplier");
-      console.log(prixmultiplier);
     return Math.round(prix);
 }
+//function localStorage
+function storagePowa(){
+    if(count >0 ){
+        localStorage.setItem('NB_de_Friandise',count);
+    }
+    if(auto_clicker_compter >0){
+    localStorage.setItem('NB_de_auto_Patte',auto_clicker_compter);
+    }
+    if(multipliercompteur > 0){
+    localStorage.setItem('NB_de_Patte-upgrade',multipliercompteur);
+    }
+    console.log("test hello worlds!");
+}
+function loadGame() {
+    auto_clicker_compter = parseInt(localStorage.getItem('NB_de_auto_Patte')) || 0;
+    count = parseInt(localStorage.getItem('NB_de_Friandise')) || 0;
+    multipliercompteur = parseInt(localStorage.getItem('NB_de_Patte-upgrade')) || 0;
 
-
+    document.getElementById("NBFclick").innerHTML = multipliercompteur +1;
+    document.getElementById("upgrader").innerHTML = multipliercompteur +1;
+    document.getElementById('autocost').innerHTML = prix_auto_clicker + " Friandise cost";
+    document.getElementById('upgradecost').innerHTML = prixmultiplier + " Friandise cost";
+    document.getElementById("countLabel").innerHTML = count;
+    document.getElementById('auto-clicker').innerHTML = auto_clicker_compter;
+    document.getElementById('NBFauto').innerHTML = auto_clicker_compter;
+    document.getElementById('autocost').innerHTML = prix_auto_clicker + " Friandise cost";
+    document.getElementById('upgradecost').innerHTML = prixmultiplier + " Friandise cost";
+    document.getElementById("countLabel").innerHTML = count;
+    document.getElementById('autocost').innerHTML = prix_auto_clicker + " Friandise cost";
+    document.getElementById('upgradecost').innerHTML = prixmultiplier + " Friandise cost";
+    prix_auto_clicker = CalculerPrixAutoClicker();
+    prixmultiplier = CalculerPrixMultiplier();
+    localStorage.clear();
+}
 
 //action
 batonnet.addEventListener("click", augmenter);
@@ -163,3 +191,4 @@ plus.addEventListener("click", auto_clickerMarket);
 
 plus.addEventListener("click", CalculerPrixAutoClicker);
 
+sauvegarder.addEventListener("click", storagePowa);
